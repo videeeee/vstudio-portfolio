@@ -77,21 +77,24 @@
     padding:180px 32px 100px;
     background:var(--bg-light);
   }
-  .hero-inner{max-width:760px; margin:0 auto; width:100%;}
+  .hero-inner{max-width:1120px; margin:0 auto; width:100%;}
   .hero .eyebrow{color:var(--primary); margin-bottom:26px; display:flex; align-items:center; gap:14px;}
   .hero .eyebrow .rule{width:48px; height:1px; background:var(--primary); opacity:.95;}
   .hero h1{
     font-family:'Fraunces',serif;
     font-weight:600;
-    font-size:clamp(52px, 8vw, 96px);
+    font-size:clamp(48px, 4.5vw, 82px);
     line-height:1.02;
     letter-spacing:-0.02em;
-    max-width:900px;
+    width:min(100%, 1100px);
+    margin:0 auto;
+    text-wrap:balance;
+    white-space:normal;
     color:var(--text-dark);
   }
   .hero h1 em{font-style:italic; font-weight:400; color:var(--secondary);}
   .hero .sub{
-    margin-top:34px; max-width:620px; font-size:20px; line-height:1.9; color:var(--text-muted);
+    margin-top:34px; max-width:760px; margin-left:auto; margin-right:auto; font-size:20px; line-height:1.9; color:var(--text-muted);
   }
   .hero .scroll-cue{
     position:absolute; bottom:32px; left:32px; font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
@@ -278,37 +281,59 @@
 
   footer{padding:120px 32px 60px; background:var(--bg-light);
   }
-  footer .wrap{max-width:var(--maxw);}
-  footer .top{display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap; border-bottom:1px solid var(--border); padding-bottom:60px;}
-  footer h2{font-family:'Fraunces',serif; font-style:italic; font-weight:400; font-size:clamp(40px,7vw,86px); color:var(--text-dark);
-  }
-  footer .role{margin-top:14px; font-size:15px; color:var(--text-muted); letter-spacing:.02em;}
+  footer .wrap{max-width:1320px;}
+  footer .top{max-width:980px; margin:0 auto; display:grid; grid-template-columns:1fr; justify-items:center; gap:30px; border-bottom:1px solid rgba(31,17,12,0.08); padding-bottom:60px;}
+  footer h2{font-family:'Fraunces',serif; font-style:italic; font-weight:400; font-size:clamp(42px,7vw,82px); color:var(--text-dark); max-width:900px; line-height:1.02;}
+  footer .role{margin-top:18px; font-size:15px; color:var(--text-muted); letter-spacing:.02em;}
   footer .role b{color:var(--text-dark); font-weight:600;}
-  .contact-copy{max-width:560px;}
-  .contact-note{margin-top:28px; font-size:17px; line-height:1.85; color:var(--text-dark); max-width:560px;}
+  .contact-copy{max-width:760px; text-align:center;}
+  .contact-note{margin:28px auto 0; font-size:17px; line-height:1.85; color:var(--text-dark); max-width:800px;}
   .availability{margin-top:12px; font-size:15px; line-height:1.8; color:var(--text-muted);}
-  .contact-actions{display:flex; flex-direction:column; align-items:flex-start; gap:20px;}
-  .contact-list{display:flex; flex-direction:column; gap:14px;}
-  .contact-list a{
-    display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border:1px solid var(--border); border-radius:999px; font-size:14px; letter-spacing:.04em; transition:background .25s,border-color .25s, transform .25s; color:var(--text-dark);
+  .contact-actions{width:100%; max-width:1120px; margin:0 auto;}
+  .contact-actions-inner{display:grid; grid-template-columns:repeat(2,minmax(280px,1fr)); gap:32px; align-items:stretch;}
+  .contact-section{padding:34px 32px; border:1px solid rgba(31,17,12,0.08); border-radius:34px; display:flex; flex-direction:column; justify-content:space-between; min-height:430px;}
+  .contact-section--vstudio{background:rgba(255,217,228,0.36); border-color:rgba(189,21,83,0.16); box-shadow:0 28px 60px rgba(189,21,83,0.12);}
+  .contact-section--agency{background:rgba(205,242,242,0.34); border-color:rgba(26,66,186,0.16); box-shadow:0 28px 60px rgba(26,66,186,0.12);}
+  @media (max-width:980px){
+    .contact-actions-inner{grid-template-columns:1fr;}
   }
-  .contact-icon{display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:999px; background:rgba(189,21,83,0.12); color:var(--primary); font-size:14px;}
-  .contact-list a:hover{background:rgba(255,217,228,0.4); border-color:var(--primary); transform:translateY(-1px);}
-  .cta-buttons{display:flex; flex-direction:column; gap:16px;}
+  .contact-section:last-child{border-bottom:none;}
+  .contact-section .group-label{display:block; margin-bottom:18px; font-size:0.78rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--text-muted);}
+  .contact-section h3{margin:0 0 18px; font-family:'Fraunces',serif; font-size:clamp(2.1rem,3.2vw,2.4rem); line-height:1.05; color:var(--text-dark);}
+  .contact-section .group-copy{margin:0 0 28px; color:var(--text-dark); line-height:1.85; font-size:1rem; max-width:680px;}
+  .contact-section--vstudio .group-label{color:var(--primary);}
+  .contact-section--agency .group-label{color:var(--secondary);}
+  .contact-list{display:grid; gap:14px;}
+  .contact-list a{
+    display:inline-flex; align-items:center; gap:14px; padding:14px 20px; border:1px solid rgba(75,46,32,0.12); border-radius:18px; font-size:15px; letter-spacing:.02em; transition:background .25s,border-color .25s, transform .25s; color:var(--text-dark); min-height:52px;
+    background:rgba(255,255,255,0.95);
+  }
+  .contact-list a:hover{background:rgba(255,255,255,1); transform:translateY(-1px);}
+  .contact-icon{display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:50%; background:rgba(189,21,83,0.12); color:var(--primary); font-size:14px; flex:none;}
+  .contact-group--agency .contact-icon{background:rgba(26,66,186,0.12); color:var(--secondary);}
+  .contact-card-actions{display:flex; flex-direction:column; gap:16px; margin-top:24px;}
   .cta-button{
     display:inline-flex; align-items:center; justify-content:center; padding:16px 30px; border-radius:999px; font-size:15px; font-weight:700; text-decoration:none; transition:transform .25s, box-shadow .25s, background .25s;
+    margin-top:24px;
   }
-  .cta-button.primary{background:linear-gradient(135deg, var(--primary), var(--secondary)); color:#fff; box-shadow:0 18px 40px rgba(189,21,83,0.18);}
-  .cta-button.primary:hover{transform:translateY(-2px); box-shadow:0 22px 48px rgba(189,21,83,0.24);}
+  .cta-button.primary{background:linear-gradient(135deg, rgba(189,21,83,0.96), rgba(132,33,79,0.95)); color:#fff; box-shadow:0 18px 40px rgba(189,21,83,0.18);}
+  .cta-button.primary:hover{transform:translateY(-2px); box-shadow:0 20px 44px rgba(189,21,83,0.22);}
   .cta-button.secondary{background:transparent; border:1px solid var(--secondary); color:var(--secondary);}
   .cta-button.secondary:hover{background:rgba(26,66,186,0.08);}
+  .cta-button.tertiary{background:linear-gradient(135deg, rgba(26,66,186,0.15), rgba(89,119,211,0.22)); border:1px solid rgba(26,66,186,0.18); color:var(--text-dark);}
+  .cta-button.tertiary:hover{background:rgba(26,66,186,0.18);}
   .bottom{display:flex; justify-content:space-between; padding-top:34px; font-size:12px; letter-spacing:.06em; color:var(--text-muted); flex-wrap:wrap; gap:10px;}
 
   /* ---------- RESPONSIVE OVERWRITES ---------- */
   .nav-left{display:flex; align-items:center; justify-content:space-between; gap:20px; width:100%;}
-  .nav-toggle{display:none; appearance:none; border:none; background:transparent; cursor:pointer; width:44px; height:44px; align-items:center; justify-content:center; padding:0;}
-  .nav-toggle span{display:block; width:22px; height:2px; background:var(--text-dark); border-radius:999px; position:relative; transition:transform .25s ease, opacity .25s ease;}
-  .nav-toggle span + span{margin-top:6px;}
+  .nav-toggle{display:none; appearance:none; border:none; background:transparent; cursor:pointer; width:48px; height:48px; min-width:48px; min-height:48px; align-items:center; justify-content:center; padding:0; position:relative;}
+  .nav-toggle span{display:block; width:24px; height:2px; background:var(--text-dark); border-radius:999px; position:absolute; left:50%; transform:translateX(-50%); transform-origin:center center; transition:transform .28s ease, opacity .18s ease, top .28s ease, background-color .28s ease;}
+  .nav-toggle span:nth-child(1){top:12px;}
+  .nav-toggle span:nth-child(2){top:22px;}
+  .nav-toggle span:nth-child(3){top:32px;}
+  .nav-toggle.open span:nth-child(1){transform:translateX(-50%) rotate(45deg); top:22px;}
+  .nav-toggle.open span:nth-child(2){opacity:0;}
+  .nav-toggle.open span:nth-child(3){transform:translateX(-50%) rotate(-45deg); top:22px;}
   .mobile-menu{display:none; position:absolute; inset:100% 0 auto 0; background:rgba(255,243,223,0.98); border-bottom:1px solid var(--border); border-top:1px solid var(--border); box-shadow:0 20px 45px rgba(0,0,0,0.08); flex-direction:column; align-items:stretch; padding:8px 0; z-index:95;}
   .mobile-menu a{display:block; padding:14px 26px; font-size:clamp(14px,2vw,16px); letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:var(--text-dark); transition:background .2s;}
   .mobile-menu a:hover{background:rgba(255,217,228,0.45);}
@@ -386,6 +411,7 @@
     .studio-identity{padding:clamp(60px,8vw,90px) 18px;}
     .studio-identity .wrap{grid-template-columns:1fr;}
     footer .top, footer .contact-actions{width:100%;}
+    footer .top{grid-template-columns:1fr;}
     .contact-list a, .cta-button{width:100%; justify-content:center;}
     .cta-buttons{flex-direction:column;}
     .bottom{flex-direction:column; align-items:flex-start;}
@@ -786,21 +812,36 @@
 <!-- CONTACT -->
 <footer id="contact">
   <div class="wrap">
-    <div class="top">
+    <div class="top contact-top">
       <div class="reveal contact-copy">
-        <h2>Let's build<br>your story.</h2>
+        <h2>Let's build your story.</h2>
         <div class="role">Videesha Narsinghani — <b>VStudio</b><br>Brand Identity Designer · Nashik, Maharashtra</div>
         <p class="contact-note">Have a project in mind, an internship opportunity, or a collaboration idea? I'd love to hear from you.</p>
         <p class="availability">Available for freelance projects, internships and creative collaborations.</p>
       </div>
       <div class="reveal contact-actions">
-        <div class="contact-list">
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=videenarsinghani12@gmail.com" target="_blank" rel="noreferrer noopener"><span class="contact-icon">✉️</span>videenarsinghani12@gmail.com</a>
-          <a href="https://www.linkedin.com/in/videesha-narsinghani-431a6727b" target="_blank" rel="noreferrer noopener">linkedin.com/in/videesha-narsinghani-431a6727b</a>
-        </div>
-        <div class="cta-buttons">
-          <a class="cta-button primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=videenarsinghani12@gmail.com" target="_blank" rel="noreferrer noopener">Let's Work Together</a>
-          <a class="cta-button secondary" href="https://www.linkedin.com/in/videesha-narsinghani-431a6727b" target="_blank" rel="noreferrer noopener">View LinkedIn</a>
+        <div class="contact-actions-inner">
+          <section class="contact-section contact-section--vstudio">
+            <span class="group-label">Personal Contact</span>
+            <h3>VStudio</h3>
+            <p class="group-copy">Primary contact for brand identity, creative direction and portfolio collaborations.</p>
+            <div class="contact-list">
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=videenarsinghani12@gmail.com" target="_blank" rel="noreferrer noopener"><span class="contact-icon">✉️</span><span>videesha.narsinghani12@gmail.com</span></a>
+              <a href="https://www.linkedin.com/in/videesha-narsinghani-431a6727b" target="_blank" rel="noreferrer noopener"><span class="contact-icon">in</span><span>linkedin.com/in/videesha-narsinghani-431a6727b</span></a>
+            </div>
+            <a class="cta-button primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=videenarsinghani12@gmail.com" target="_blank" rel="noreferrer noopener">Let's Work Together</a>
+          </section>
+          <section class="contact-section contact-section--agency">
+            <span class="group-label">Agency Contact</span>
+            <h3>AI Jugaad</h3>
+            <p class="group-copy">Web Development • Design • AI Automation</p>
+            <div class="contact-list">
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aijugaaad@gmail.com" target="_blank" rel="noreferrer noopener"><span class="contact-icon">✉️</span><span>aijugaaad@gmail.com</span></a>
+              <a href="https://instagram.com/aijugaad.co" target="_blank" rel="noreferrer noopener"><span class="contact-icon">📷</span><span>instagram.com/aijugaad.co</span></a>
+              <a href="https://ai-jugaad.vercel.app" target="_blank" rel="noreferrer noopener"><span class="contact-icon">🌐</span><span>ai-jugaad.vercel.app</span></a>
+            </div>
+            <a class="cta-button tertiary" href="https://ai-jugaad.vercel.app" target="_blank" rel="noreferrer noopener">Let's Build Something Crazy</a>
+          </section>
         </div>
       </div>
     </div>
